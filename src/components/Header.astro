@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import avatar from '../assets/avatar.jpg';
+
+const path = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? path === '/' : path.startsWith(href);
+---
+
+<header class="flex justify-between items-center py-3 w-full h-28 px-4">
+  <a href="/" class="flex items-center gap-3">
+    <Image src={avatar} alt="Saul Lagos" class="rounded-full w-12 h-12 object-cover" />
+    <span class="font-bold text-white">Saul Lagos</span>
+  </a>
+
+  <nav class="flex gap-x-6 text-sm md:text-base">
+    <a href="/" class={isActive('/') ? 'text-sky-400' : 'text-gray-300 hover:text-white'} aria-current={isActive('/') ? 'page' : undefined}>Inicio</a>
+    <a href="/about" class={isActive('/about') ? 'text-sky-400' : 'text-gray-300 hover:text-white'} aria-current={isActive('/about') ? 'page' : undefined}>Sobre Mí</a>
+    <a href="/projects" class={isActive('/projects') ? 'text-sky-400' : 'text-gray-300 hover:text-white'} aria-current={isActive('/projects') ? 'page' : undefined}>Proyectos</a>
+    <a href="/contact" class={isActive('/contact') ? 'text-sky-400' : 'text-gray-300 hover:text-white'} aria-current={isActive('/contact') ? 'page' : undefined}>Contacto</a>
+  </nav>
+</header>

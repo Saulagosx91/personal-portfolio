@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets';
+import Badge from '../components/Badge.astro';
+import Layout from '../layouts/Layout.astro';
+import avatarImage from '../assets/avatar.jpg';
+import { site } from '../data/site';
+---
+
+<Layout title={site.title} description={site.description}>
+  <section class="w-full mx-auto lg:w-[740px] py-44 flex flex-col gap-4" data-animate>
+      <Image
+        src={avatarImage}
+        alt="Foto de Saul Lagos"
+        class:list={'rounded-full h-50 w-50 object-cover'}
+      />
+      <div class="flex gap-4 items-center flex-wrap">
+        <h1 class="text-white text-5xl font-bold -mt-2">
+          Hola, Soy Saul Lagos
+        </h1>
+        <a
+          href="https://www.linkedin.com/in/saul-lagos-9aab41267/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+        </a>
+      </div>
+      <h2 class="text-xl">
+        Desarrollador web frontend con manejo de tecnologías modernas, entre
+        ellas: <span class="font-bold text-sky-400"
+          >React, Astro, Next.js, Tailwind CSS, Javascript, NodeJS</span
+        > y más.
+      </h2>
+      <div class="flex gap-4 flex-wrap">
+        <a
+          href="/projects"
+          class="px-5 py-2.5 rounded-lg bg-sky-500 text-white font-medium hover:bg-sky-400 transition-colors"
+        >
+          Ver proyectos
+        </a>
+        <a
+          href={site.cvPath}
+          download
+          class="px-5 py-2.5 rounded-lg border border-sky-500 text-sky-400 font-medium hover:bg-sky-500/10 transition-colors"
+        >
+          Descargar CV
+        </a>
+      </div>
+    </section>
+</Layout>
+
+<script>
+  const els = document.querySelectorAll('[data-animate]');
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('is-visible');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    els.forEach((el) => io.observe(el));
+  } else {
+    els.forEach((el) => el.classList.add('is-visible'));
+  }
+</script>
