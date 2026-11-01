@@ -20,6 +20,6 @@ export const education: TimelineItem[] = [
     title: 'Ingeniería de Sistemas',
     place: 'Universidad Nacional de Ingeniería',
     period: '2021 - 2025',
-    description: 'TODO: enfoque o materias relevantes.',
+    description: '',
   },
 ];
