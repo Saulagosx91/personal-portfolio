@@ -1,22 +1,59 @@
 ---
-import { Image } from 'astro:assets';
-import avatar from '../assets/avatar.png';
+import { Image } from "astro:assets";
+import avatar from "../assets/avatar.png";
 
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
-  href === '/' ? path === '/' : path.startsWith(href);
+  href === "/" ? path === "/" : path.startsWith(href);
 ---
 
-<header class="flex justify-between items-center py-3 w-full h-28 px-4">
-  <a href="/" class="flex items-center gap-3">
+<header class="flex items-center justify-end py-3 w-full h-20 px-12 fixed">
+  <!-- <a href="/" class="flex items-center gap-3">
     <Image src={avatar} alt="Saul Lagos" class="rounded-full w-12 h-12 object-cover" />
     <span class="font-bold text-white">Saul Lagos</span>
-  </a>
+  </a> -->
 
   <nav class="flex gap-x-6 text-sm md:text-base">
-    <a href="/" class={isActive('/') ? 'text-sky-400' : 'text-gray-300 hover:text-white'} aria-current={isActive('/') ? 'page' : undefined}>Inicio</a>
-    <a href="/about" class={isActive('/about') ? 'text-sky-400' : 'text-gray-300 hover:text-white'} aria-current={isActive('/about') ? 'page' : undefined}>Sobre Mí</a>
-    <a href="/projects" class={isActive('/projects') ? 'text-sky-400' : 'text-gray-300 hover:text-white'} aria-current={isActive('/projects') ? 'page' : undefined}>Proyectos</a>
-    <a href="/contact" class={isActive('/contact') ? 'text-sky-400' : 'text-gray-300 hover:text-white'} aria-current={isActive('/contact') ? 'page' : undefined}>Contacto</a>
+    <a
+      href="/"
+      class={isActive("/") ? "text-sky-400" : "text-gray-300 hover:text-white"}
+      aria-current={isActive("/") ? "page" : undefined}>Inicio</a
+    >
+    <a
+      href="/about"
+      class={isActive("/about")
+        ? "text-sky-400"
+        : "text-gray-300 hover:text-white"}
+      aria-current={isActive("/about") ? "page" : undefined}>Sobre Mí</a
+    >
+    <a
+      href="/projects"
+      class={isActive("/projects")
+        ? "text-sky-400"
+        : "text-gray-300 hover:text-white"}
+      aria-current={isActive("/projects") ? "page" : undefined}>Proyectos</a
+    >
+    <a
+      href="/contact"
+      class={isActive("/contact")
+        ? "text-sky-400"
+        : "text-gray-300 hover:text-white"}
+      aria-current={isActive("/contact") ? "page" : undefined}>Contacto</a
+    >
   </nav>
 </header>
+
+<style>
+  @keyframes highlight {
+    to {
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+  }
+  header {
+    animation: highlight ease-in-out forwards;
+    animation-timeline: scroll();
+    animation-range: exit 5% exit 20%;
+  }
+</style>
