@@ -44,13 +44,6 @@ try {
       <h1 class="text-3xl font-bold text-white mb-2">Proyectos</h1>
     </div>
 
-    <div data-animate class="flex flex-wrap gap-2 items-center">
-      <button data-filter="all" class="filter-btn px-3 py-1.5 rounded-full bg-sky-500 text-white text-sm">Todos</button>
-      {allTags.map((tag) => (
-        <button data-filter={tag} class="filter-btn px-3 py-1.5 rounded-full bg-gray-800 text-gray-200 text-sm hover:bg-gray-700">{tag}</button>
-      ))}
-    </div>
-
     <div id="projects-grid" class="grid gap-6 md:grid-cols-2">
       {projects.map((p) => <ProjectCard project={p} />)}
     </div>
