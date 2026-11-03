@@ -17,7 +17,7 @@ repoVisibility: "private"
 
 ---
 ## **¿Qué es SportMedic?**
-SportMedic es una tienda de artículos deportivos ubicada en la ciudad de Estelí. La tienda proporciona sus productos por redes sociales, lleva los registros diarios de forma manual y no cuenta con un control de inventario ni registros detallados de ventas realizadas.< 
+SportMedic es una tienda de artículos deportivos ubicada en la ciudad de Estelí. La tienda proporciona sus productos por redes sociales, lleva los registros diarios de forma manual y no cuenta con un control de inventario ni registros detallados de ventas realizadas. 
 
 Esta aplicación proporciona herramientas para gestionar el catálogo de productos, el inventario y las ventas, con roles de usuario específicos para clientes, empleados y administradores.
 
