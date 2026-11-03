@@ -2,7 +2,11 @@
 title: "SportMedic"
 description: "Sistema de información web para una tienda de artículos deportivos en Estelí."
 cover: "../../assets/landing-sportmedic.png"
-images: []
+images:
+  - "./image.png"
+  - "./image-1.png"
+  - "./image-3.png"
+  - "./image-2.png"
 tags: ["React", "TypeScript", "Express", "PostgreSQL"]
 status: "tesis"
 year: 2026
@@ -19,7 +23,7 @@ Esta aplicación proporciona herramientas para gestionar el catálogo de product
 
 ## Mi rol
 
-TODO: detallar responsabilidades.
+Desarrollador Fullstack
 
 ## Tecnologías
 
@@ -36,8 +40,4 @@ Controlar datos del servidor y gestionar caché:  TanStack Query
 
 ## Capturas
 
-TODO: agregar capturas o video del flujo principal.
-
-## Enlaces
-
-TODO: enlaces cuando estén disponibles.
+(Carrusel en la página del proyecto.)
