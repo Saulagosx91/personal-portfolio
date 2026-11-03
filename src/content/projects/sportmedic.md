@@ -1,9 +1,9 @@
 ---
 title: "SportMedic"
-description: "Sistema de información web para una tienda de artículos deportivos en Estelí. TODO: completar descripción."
-cover: "../../assets/avatar.jpg"
+description: "Sistema de información web para una tienda de artículos deportivos en Estelí."
+cover: "../../assets/landing-sportmedic.png"
 images: []
-tags: ["Astro", "TypeScript", "Tailwind CSS"]
+tags: ["React", "TypeScript", "Express", "PostgreSQL"]
 status: "tesis"
 year: 2026
 role: "Desarrollador frontend"
@@ -11,13 +11,11 @@ featured: true
 repoVisibility: "private"
 ---
 
-## Problema
+## ¿Qué es SportMedic?
+SportMedic es una tienda de artículos deportivos ubicada en la ciudad de Estelí. La tienda proporciona sus productos por redes sociales, lleva los registros diarios de forma manual y no cuenta con un control de inventario ni registros detallados de ventas realizadas.
 
-TODO: describir el problema que resuelve SportMedic.
+Esta aplicación proporciona herramientas para gestionar el catálogo de productos, el inventario y las ventas, con roles de usuario específicos para clientes, empleados y administradores.
 
-## Solución
-
-TODO: describir la solución implementada.
 
 ## Mi rol
 
@@ -25,11 +23,16 @@ TODO: detallar responsabilidades.
 
 ## Tecnologías
 
-TODO: listar stack completo.
+Backend: Node.js, Express.js, TypeORM
+Base de datos: PostgreSQL
+Inyección de dependencias: typedi
+Controladores y enrutamiento: routing-controllers
+Autenticación: JWT (JSON Web Tokens)
 
-## Retos y aprendizajes
+Frontend: React, Tailwindcss 
+Manejo de estados: Zustand
+Controlar datos del servidor y gestionar caché:  TanStack Query
 
-TODO: retos y aprendizajes.
 
 ## Capturas
 
