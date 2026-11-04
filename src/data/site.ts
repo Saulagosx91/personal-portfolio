@@ -1,4 +1,3 @@
-// TODO: reemplazar con tus datos reales
 export const site = {
   name: 'Saul Lagos',
   title: 'Saul Lagos — Desarrollador Frontend',
@@ -7,5 +6,5 @@ export const site = {
   email: 'lagosmsaul@gmail.com',
   linkedin: 'https://www.linkedin.com/in/saul-lagos-9aab41267/',
   whatsapp: 'https://wa.me/+50588592438',
-  cvPath: '/curriculum.pdf',
+  cvPath: '/curriculum-saul-lagos.pdf',
 };

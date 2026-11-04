@@ -6,13 +6,6 @@ export type TimelineItem = {
 };
 
 export const experience: TimelineItem[] = [
-  // TODO: reemplazar con tu experiencia real
-  // {
-  //   title: 'Desarrollador Frontend (freelance)',
-  //   place: 'TODO: empresa/cliente',
-  //   period: '2025 — Presente',
-  //   description: 'TODO: descripción de responsabilidades y logros.',
-  // },
 ];
 
 export const education: TimelineItem[] = [

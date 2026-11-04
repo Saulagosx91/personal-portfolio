@@ -2,10 +2,9 @@ export type Certification = {
   title: string;
   issuer: string;
   date: string;
-  url?: string; // enlace al diploma o imagen
+  url?: string;
 };
 
-// TODO: agrega tus diplomas y certificaciones aquí
 export const certifications: Certification[] = [
   {
     title: 'Primer lugar en la feria Científica y Tecnológica. Categoría Tecnologías de la información y comunicación',

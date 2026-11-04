@@ -7,7 +7,6 @@ export type GithubRepo = {
   html_url: string;
 };
 
-// Respaldo local si la API de GitHub falla o hay límite de peticiones.
 export const fallbackRepos: GithubRepo[] = [
   {
     name: 'my-portfolio',
