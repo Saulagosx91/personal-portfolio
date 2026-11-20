@@ -11,7 +11,7 @@ status: "en desarrollo"
 year: 2026
 role: "Desarrollador Full Stack"
 featured: true
-repoUrl: https://github.com/Saulagosx91/car-rental-backend.git
+repoUrl: https://github.com/Saulagosx91/car-rental.git
 repoVisibility: "public"
 ---
 
@@ -23,4 +23,4 @@ Base de datos: MySql
 
 Autenticación: JWT (JSON Web Tokens)
 
-Frontend: React, Tailwindcss
+Frontend: React, Tailwindcss, Vite, React Router

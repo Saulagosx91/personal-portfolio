@@ -32,13 +32,14 @@ Desarrollador Full Stack
 Backend: Node.js, Express.js, TypeORM
 
 Base de datos: PostgreSQL
+
 Inyección de dependencias: typedi
 
 Controladores y enrutamiento: routing-controllers
 
 Autenticación: JWT (JSON Web Tokens)
 
-Frontend: React, Tailwindcss
+Frontend: React, Tailwindcss, React Router, Vite, React Toastify
 
 Manejo de estados: Zustand
 

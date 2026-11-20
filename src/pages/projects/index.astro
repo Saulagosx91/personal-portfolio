@@ -11,31 +11,6 @@ const projects = (await getCollection('projects')).sort((a, b) => {
 });
 
 const allTags = [...new Set(projects.flatMap((p) => p.data.tags))].sort();
-
-// Build-time fetch de repos públicos de GitHub (sin JS en cliente).
-let repos = fallbackRepos;
-let githubError = false;
-try {
-  const res = await fetch(
-    `https://api.github.com/users/${site.githubUsername}/repos?sort=updated&per_page=6&type=owner`,
-    { headers: { Accept: 'application/vnd.github+json' } }
-  );
-  if (!res.ok) throw new Error(`GitHub ${res.status}`);
-  const json = await res.json();
-  if (Array.isArray(json) && json.length) {
-    repos = json.map((r: any) => ({
-      name: r.name,
-      description: r.description,
-      language: r.language,
-      stargazers_count: r.stargazers_count,
-      updated_at: r.updated_at,
-      html_url: r.html_url,
-    }));
-  }
-} catch {
-  githubError = true;
-  repos = fallbackRepos;
-}
 ---
 
 <Layout title={`Projects — ${site.name}`} description="Proyectos destacados y repositorios de GitHub.">
@@ -50,24 +25,6 @@ try {
 
     <div data-animate class="mt-8">
       <h2 class="text-2xl font-bold text-white mb-4">Más en GitHub</h2>
-      {githubError && (
-        <p class="text-sm text-gray-400 mb-3">No se pudo consultar la API de GitHub; mostrando datos de respaldo.</p>
-      )}
-      <div class="grid gap-4 md:grid-cols-2">
-        {repos.map((r) => (
-          <a href={r.html_url} target="_blank" rel="noopener noreferrer" class="rounded-xl border border-gray-800 p-4 hover:border-sky-500/50 transition-colors">
-            <div class="flex items-center justify-between gap-2">
-              <h3 class="font-semibold text-white">{r.name}</h3>
-              <span class="text-xs text-gray-400">★ {r.stargazers_count}</span>
-            </div>
-            <p class="text-sm text-gray-300 mt-1">{r.description ?? 'Sin descripción'}</p>
-            <div class="flex items-center justify-between mt-3 text-xs text-gray-400">
-              <span>{r.language ?? '—'}</span>
-              <span>Actualizado {new Date(r.updated_at).toLocaleDateString('es-ES')}</span>
-            </div>
-          </a>
-        ))}
-      </div>
       <div class="mt-4">
         <a href={`https://github.com/${site.githubUsername}`} target="_blank" rel="noopener noreferrer" class="text-sky-400 hover:underline">
           Ver todos mis repositorios →
