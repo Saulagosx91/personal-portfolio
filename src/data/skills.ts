@@ -45,6 +45,7 @@ export const skillGroups: SkillGroup[] = [
     category: 'Bases de datos / Escritorio',
     items: [
       { name: 'MySQL', icon: 'mysql' },
+      { name: 'PostgreSQL', icon: 'postgresql' },
       { name: 'C#', icon: 'csharp' },
     ]
   }

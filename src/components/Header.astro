@@ -1,7 +1,4 @@
 ---
-import { Image } from "astro:assets";
-import avatar from "../assets/avatar.png";
-
 const path = Astro.url.pathname;
 const isActive = (href: string) =>
   href === "/" ? path === "/" : path.startsWith(href);
