@@ -1,6 +1,6 @@
 ---
 title: "Power Inventory"
-description: "Aplicación web para la gestión de ventas, productos e inventario potenciada con agente de inteligencia artificial."
+description: "Aplicación web para la gestión de ventas, productos e inventario potenciada con un asistente de inteligencia artificial."
 cover: "../../assets/home-power-inventory.png"
 tags: ["Next.js", "TypeScript", "Prisma ORM", "Vercel AI SDK", "MySQL", "Sonner", "Server Components", "Client Components"]
 status: "en desarrollo"
@@ -15,6 +15,11 @@ demoUrl: https://ai-inventory-manager-six.vercel.app/
 ## Power Inventory
 
 Power Inventory es una aplicación web desarrollada con Next.js para gestionar inventario y ventas de negocios pymes. Utiliza AI SDK para añadir modelos de Inteligencia Artificial a la aplicación, integrado como un asistente, con Tools que le permiten agregar, acutalizar y listar productos, ventas y las alertas de stock.
+
+---
+## Mi rol
+
+Desarrollador Full Stack
 
 ## Tecnologías
 
