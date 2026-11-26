@@ -7,7 +7,7 @@ images:
   - "./image-1.png"
   - "./image-3.png"
   - "./image-2.png"
-tags: ["React", "TypeScript", "Express", "PostgreSQL"]
+tags: ["React", "TypeScript", "Express", "PostgreSQL", "2FA", "RBAC", "Auth", "React Hook Form", "Zustand"]
 status: "tesis"
 year: 2026
 role: "Desarrollador Full Stack"
@@ -29,18 +29,18 @@ Desarrollador Full Stack
 
 ## Tecnologías
 
-Backend: Node.js, Express.js, TypeORM
+Backend: Node.js, Express.js, TypeORM.
 
-Base de datos: PostgreSQL
+Base de datos: PostgreSQL.
 
-Inyección de dependencias: typedi
+Inyección de dependencias: typedi.
 
-Controladores y enrutamiento: routing-controllers
+Controladores y enrutamiento: routing-controllers.
 
-Autenticación: JWT (JSON Web Tokens)
+Autenticación: JWT (JSON Web Tokens), 2FA (Two-Factor Authentication).
 
-Frontend: React, Tailwindcss, React Router, Vite, React Toastify
+Frontend: React, Tailwindcss, React Router, Vite, React Toastify.
 
-Manejo de estados: Zustand
+Manejo de estados: Zustand.
 
-Controlar datos del servidor y gestionar caché: TanStack Query
+Controlar datos del servidor y gestionar caché: TanStack Query.

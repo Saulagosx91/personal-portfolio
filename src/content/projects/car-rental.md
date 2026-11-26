@@ -6,7 +6,7 @@ images:
   - "./image-4.png"
   - "./image-6.png"
   - "./image-5.png"
-tags: ["React", "TypeScript", "Express", "MySql"]
+tags: ["React", "TypeScript", "Express", "MySql", "Tailwindcss", "RBAC", "Sequelize"]
 status: "en desarrollo"
 year: 2026
 role: "Desarrollador Full Stack"
@@ -17,10 +17,14 @@ repoVisibility: "public"
 
 ## Tecnologías
 
-Backend: Node.js, Express.js, Sequelize
+Backend: Node.js, Express.js, Sequelize.
 
-Base de datos: MySql
+Base de datos: MySql.
 
-Autenticación: JWT (JSON Web Tokens)
+Autenticación: JWT (JSON Web Tokens).
 
-Frontend: React, Tailwindcss, Vite, React Router
+Inyección de dependencias: Reflect metadata.
+
+Frontend: React, Tailwindcss, Vite, React Router, React Toastify.
+
+Validación: Zod.
