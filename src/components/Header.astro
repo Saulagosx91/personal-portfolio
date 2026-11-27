@@ -1,40 +1,58 @@
----
-const path = Astro.url.pathname;
-const isActive = (href: string) =>
-  href === "/" ? path === "/" : path.startsWith(href);
----
-
 <header class="flex items-center justify-center md:justify-end py-3 w-full h-20 px-12 fixed z-30">
 
   <nav class="flex gap-x-6 text-sm md:text-base">
     <a
-      href="/"
-      class={isActive("/") ? "text-sky-400" : "text-gray-300 hover:text-white"}
-      aria-current={isActive("/") ? "page" : undefined}>Inicio</a
-    >
+      href="/#inicio"
+      class="text-gray-300 hover:text-white"
+    >Inicio</a>
     <a
-      href="/about"
-      class={isActive("/about")
-        ? "text-sky-400"
-        : "text-gray-300 hover:text-white"}
-      aria-current={isActive("/about") ? "page" : undefined}>Sobre Mí</a
-    >
+      href="/#sobre-mi"
+      class="text-gray-300 hover:text-white"
+    >Sobre Mí</a>
     <a
-      href="/projects"
-      class={isActive("/projects")
-        ? "text-sky-400"
-        : "text-gray-300 hover:text-white"}
-      aria-current={isActive("/projects") ? "page" : undefined}>Proyectos</a
-    >
+      href="/#proyectos"
+      class="text-gray-300 hover:text-white"
+    >Proyectos</a>
     <a
-      href="/contact"
-      class={isActive("/contact")
-        ? "text-sky-400"
-        : "text-gray-300 hover:text-white"}
-      aria-current={isActive("/contact") ? "page" : undefined}>Contacto</a
-    >
+      href="/#contacto"
+      class="text-gray-300 hover:text-white"
+    >Contacto</a>
   </nav>
 </header>
+
+<script>
+  function initHeaderActive() {
+    const links = Array.from(document.querySelectorAll('header nav a')) as HTMLAnchorElement[];
+    const sections = Array.from(document.querySelectorAll('section[id]')) as HTMLElement[];
+    if (!links.length || !sections.length) return;
+
+    const setActive = (id: string) => {
+      links.forEach((link) => {
+        const target = link.getAttribute('href')?.split('#')[1];
+        const active = target === id;
+        link.classList.toggle('text-sky-400', active);
+        link.classList.toggle('text-gray-300', !active);
+        if (active) link.classList.remove('hover:text-white');
+        else link.classList.add('hover:text-white');
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: '-40% 0px -55% 0px', threshold: 0 }
+    );
+    sections.forEach((s) => observer.observe(s));
+
+    // initial
+    if (window.location.hash) setActive(window.location.hash.slice(1));
+    else if (sections[0]) setActive(sections[0].id);
+  }
+  document.addEventListener('astro:page-load', initHeaderActive);
+</script>
 
 <style>
   @keyframes highlight {

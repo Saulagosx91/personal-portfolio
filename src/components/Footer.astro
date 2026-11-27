@@ -3,6 +3,9 @@ import { site } from '../data/site';
 const year = new Date().getFullYear();
 ---
 
-<footer class="w-full py-8 text-center text-sm text-gray-400">
-  <p>© {year} {site.name}. Todos los derechos reservados.</p>
+<footer class="w-full py-8 text-sm text-gray-400">
+  <div class="flex flex-wrap items-center justify-around gap-4 px-4">
+    <p>© {year} {site.name}. Todos los derechos reservados.</p>
+    <p>Sitio web creado con Astro y Tailwind CSS.</p>
+  </div>
 </footer>

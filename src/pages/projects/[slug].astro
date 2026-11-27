@@ -27,7 +27,7 @@ const statusColor =
 <Layout title={`${data.title} — ${site.name}`} description={data.description}>
   <article class="w-full mx-auto lg:w-[800px] py-16 px-4 flex flex-col gap-8">
     <div data-animate>
-      <a href="/projects" class="text-sky-400 hover:underline text-[18px] p-3">← Volver a proyectos</a>
+      <a href="/#proyectos" class="text-sky-400 hover:underline text-[18px] p-3">← Volver a proyectos</a>
       <h1 class="text-3xl font-bold text-white mt-3">{data.title}</h1>
       <p class="text-gray-300 mt-2">{data.description}</p>
       <div class="flex flex-wrap gap-3 mt-4 text-sm">
@@ -49,12 +49,19 @@ const statusColor =
     </div>
 
     {data.images.length > 0 && (
-      <div data-animate class="grid gap-4 md:grid-cols-2">
+      <div id="project-gallery" data-animate class="grid gap-4 grid-cols-2 md:grid-cols-3">
         {data.images.map((img, i) => (
-          <Image src={img} alt={`${data.title} captura ${i + 1}`} class="rounded-xl" />
+          <div class="overflow-hidden rounded-xl border border-gray-800 bg-gray-900/40 cursor-zoom-in">
+            <Image src={img} alt={`${data.title} captura ${i + 1}`} class="w-full h-full object-cover aspect-[4/3] hover:scale-105 transition-transform duration-300" />
+          </div>
         ))}
       </div>
     )}
+
+    <div id="lightbox" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/70 backdrop-blur-md opacity-0 transition-opacity duration-300" role="dialog" aria-modal="true">
+      <button id="lightbox-close" type="button" aria-label="Cerrar imagen" class="absolute top-4 right-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white text-xl hover:bg-white/20 transition-colors">✕</button>
+      <img id="lightbox-img" src="" alt="" class="max-h-[85vh] max-w-[90vw] rounded-xl shadow-2xl scale-95 opacity-0 transition-all duration-300 ease-out" />
+    </div>
 
     {data.videoUrl && (
       <div data-animate>
@@ -96,5 +103,50 @@ const statusColor =
       els.forEach((el) => el.classList.add('is-visible'));
     }
   }
+
+  function initLightbox() {
+    const gallery = document.getElementById('project-gallery');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    const closeBtn = document.getElementById('lightbox-close');
+    if (!gallery || !lightbox || !lightboxImg || !closeBtn) return;
+
+    const open = (src: string, alt: string) => {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      requestAnimationFrame(() => {
+        lightbox.classList.remove('opacity-0');
+        lightboxImg.classList.remove('scale-95', 'opacity-0');
+        lightboxImg.classList.add('scale-100', 'opacity-100');
+      });
+    };
+
+    const close = () => {
+      lightbox.classList.add('opacity-0');
+      lightboxImg.classList.add('scale-95', 'opacity-0');
+      lightboxImg.classList.remove('scale-100', 'opacity-100');
+      window.setTimeout(() => {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        lightboxImg.src = '';
+      }, 300);
+    };
+
+    gallery.querySelectorAll('img').forEach((img) => {
+      img.addEventListener('click', () => open(img.src, img.alt));
+    });
+
+    closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) close();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) close();
+    });
+  }
+
   document.addEventListener('astro:page-load', initAnimate);
+  document.addEventListener('astro:page-load', initLightbox);
 </script>

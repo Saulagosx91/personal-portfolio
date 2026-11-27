@@ -53,6 +53,15 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.com
 
   html {
     font-family: system-ui, sans-serif;
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+  [id] {
+    scroll-margin-top: 5rem;
   }
   body {
     margin: 0;
